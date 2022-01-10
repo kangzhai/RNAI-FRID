@@ -2,7 +2,7 @@
 A novel feature representation method to generate the complex complex with information enhancement and dimension reduction for representing RNA-RNA interaction.
 
 # Usage
-An example of command:
+Command (an example):
 
 python RNAI-FRID.py --tv_set Example\TrainingValidationSet.fasta --test_set Example\TestSet.fasta --all_feature False --ranked_feature False --retained_feature True
 
