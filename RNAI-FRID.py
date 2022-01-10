@@ -20,20 +20,20 @@ def args_parser():
     )
     parser.add_argument(
         '--all_feature',
-        type=bool,
-        default=False,
+        type=str,
+        default="False",
         help='Features without ranking'
     )
     parser.add_argument(
         '--ranked_feature',
-        type=bool,
-        default=False,
+        type=str,
+        default="False",
         help='Ranked features'
     )
     parser.add_argument(
         '--retained_feature',
-        type=bool,
-        default=True,
+        type=str,
+        default="True",
         help='Retained features'
     )
     args = parser.parse_args()
@@ -77,7 +77,7 @@ def RNAIFRID(args):
     # complex feature selecting
     scf_tv_set, scf_test_set = ComplexFeatureSelection(X_train, y_train, IndicesRF, rcf_tv_set, rcf_test_set)
     # output all complex features without ranking
-    if args.all_feature == True:
+    if args.all_feature == "True":
         w1 = open('Complex Features without Ranking (TrainingValidationSet).fasta', 'w')
         w1.writelines(cf_tv_set)
         w1.close()
@@ -86,7 +86,7 @@ def RNAIFRID(args):
             w2.writelines(cf_test_set)
             w2.close()
     # output ranked complex features
-    if args.ranked_feature == True:
+    if args.ranked_feature == "True":
         w3 = open('Ranked Complex Features (TrainingValidationSet).fasta', 'w')
         w3.writelines(rcf_tv_set)
         w3.close()
@@ -95,7 +95,7 @@ def RNAIFRID(args):
             w4.writelines(rcf_test_set)
             w4.close()
     # output retained complex features
-    if args.retained_feature == True:
+    if args.retained_feature == "True":
         w5 = open('Retained Complex Features (TrainingValidationSet).fasta', 'w')
         w5.writelines(scf_tv_set)
         w5.close()
@@ -107,6 +107,9 @@ def RNAIFRID(args):
 def main():
     args = args_parser()
     RNAIFRID(args)
+    print(args.all_feature)
+    print(args.ranked_feature)
+    print(args.retained_feature)
 
 if __name__ == '__main__':
     main()
