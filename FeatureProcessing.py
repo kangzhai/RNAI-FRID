@@ -4,7 +4,7 @@ import numpy as np
 import re
 import math
 from sklearn import ensemble
-# np.random.seed(1337) # random seed
+np.random.seed(1337) # random seed
 
 separator, Sequencekmertotal, SequenceGgaptotal, Structurekmertotal, StructureGgaptotal = ' ', 3, 3, 3, 3
 

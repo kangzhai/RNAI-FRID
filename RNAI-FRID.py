@@ -1,7 +1,7 @@
 import argparse
 import numpy as np
 from FeatureProcessing import FeatureConstruction, FeatureConversion, FeatureRanking, FeatureSelection
-# np.random.seed(1337) # random seed
+np.random.seed(1337) # random seed
 
 def args_parser():
     parser = argparse.ArgumentParser()
