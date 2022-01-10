@@ -4,6 +4,6 @@ A novel feature representation method to generate the complex complex with infor
 # Usage
 An example as below:
 
-python RNAI-FRID.py --tv_set Example\\TrainingValidationSet.fasta --test_set None --all_feature False --ranked_feature False --retained_feature True
+python RNAI-FRID.py --tv_set Example\\\TrainingValidationSet.fasta --test_set Example\\\TestSet --all_feature False --ranked_feature False --retained_feature True
 
 # The complete codes and usage are updating now.
