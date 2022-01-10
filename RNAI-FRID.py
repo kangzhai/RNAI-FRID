@@ -1,7 +1,7 @@
 import argparse
 import numpy as np
 from FeatureProcessing import FeatureConstruction, FeatureConversion, FeatureRanking, FeatureSelection
-np.random.seed(1337) # random seed
+# np.random.seed(1337) # random seed
 
 def args_parser():
     parser = argparse.ArgumentParser()
@@ -14,20 +14,20 @@ def args_parser():
     parser.add_argument(
         '--test_set',
         type=str,
-        # default='None',
-        default='Example\\TestSet.fasta',
+        default='None',
+        # default='Example\\TestSet.fasta',
         help='name of Test Set'
     )
     parser.add_argument(
         '--all_feature',
         type=bool,
-        default=True,
+        default=False,
         help='Features without ranking'
     )
     parser.add_argument(
         '--ranked_feature',
         type=bool,
-        default=True,
+        default=False,
         help='Ranked features'
     )
     parser.add_argument(

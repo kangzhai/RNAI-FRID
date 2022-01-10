@@ -4,7 +4,7 @@ import numpy as np
 import re
 import math
 from sklearn import ensemble
-np.random.seed(1337) # random seed
+# np.random.seed(1337) # random seed
 
 separator, Sequencekmertotal, SequenceGgaptotal, Structurekmertotal, StructureGgaptotal = ' ', 3, 3, 3, 3
 
@@ -440,7 +440,7 @@ def FeatureSelection(X_train, y_train, IndicesRF, rcf_tv_set, rcf_test_set):
             sample2 = Line2.strip().split(' ')
             label2 = sample2[-1]
             for j2 in range(num):
-                string2 = string2 + sample2[j]
+                string2 = string2 + sample2[j] + ' '
             string2 = string2 + label2 + '\n'
             TestSelectedFeature.append(string2)
     else:
