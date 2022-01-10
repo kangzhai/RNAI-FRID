@@ -8,7 +8,7 @@ python RNAI-FRID.py --tv_set Example\TrainingValidationSet.fasta --test_set Exam
 
 --tv_set: Path of dataset for training and validation and default is "Example\TrainingValidationSet.fasta". It must be a path.
 
---test_set: Path of dataset for test and default is "None". It can be a path or "None". "None" means only training and validation without test. When it is not "None", the features of testset will be output.
+--test_set: Path of dataset for test and default is "None". It can be a path or "None". "None" means only training and validation without test. When it is not "None", the features of testset can be output.
 
 --all_feature: Output all complex features without ranking. It must be "True" or "False".
 
