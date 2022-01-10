@@ -51,7 +51,10 @@ def ComplexFeatureConstruction(list_tv_set, list_test_set):
 
 def ComplexFeatureConversion(cf_tv_set, cf_test_set):
     X_train, y_train = FeatureConversion(cf_tv_set)
-    X_test, y_test = FeatureConversion(cf_test_set) if cf_test_set is not "None" else "None", "None"
+    if cf_test_set is not "None":
+        X_test, y_test = FeatureConversion(cf_test_set)
+    else:
+        X_test, y_test = "None", "None"
     return X_train, y_train, X_test, y_test
 
 def ComplexFeatureRanking(X_train, y_train, X_test, y_test):
