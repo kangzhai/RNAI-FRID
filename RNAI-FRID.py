@@ -9,14 +9,14 @@ def args_parser():
         '--tv_set',
         type=str,
         default='Example\\TrainingValidationSet.fasta',
-        help='name of the Training-Validation Set'
+        help='path of the Training-Validation Set'
     )
     parser.add_argument(
         '--test_set',
         type=str,
         default='None',
         # default='Example\\TestSet.fasta',
-        help='name of Test Set'
+        help='path of Test Set'
     )
     parser.add_argument(
         '--all_feature',
