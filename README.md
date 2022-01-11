@@ -3,8 +3,6 @@ The related data and scoure codes of RNAI-FRID are provided by Q. Kang.
 
 The latest version is updated on January 11, 2022.
 
-Richer features will be updated and the bugs will be modified in the near future.
-
 # Introduction
 RNAI-FRID is a novel feature representation method, which can generate the complex complex with information enhancement and dimension reduction for representing RNA-RNA interaction.
 
@@ -55,6 +53,8 @@ python RNAI-FRID.py --tv_set Example\TrainingValidationSet.fasta --test_set None
 --nb (must be "True" or "False"): Train a Naive Bayes model with the generated features and default is "False". If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
 
 --dt (must be "True" or "False"): Train a Decision Tree model with the generated features and default is "False". If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
+
+In the output feature file, each line represents the feature values of a sample (the last number of each line is the label), and the features are separated by spaces.
 
 # Reference
 If you use the codes, please cite the reference as below.
