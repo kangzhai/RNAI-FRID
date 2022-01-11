@@ -54,7 +54,7 @@ def args_parser():
     parser.add_argument(
         '--lr',
         type=str,
-        default="True",
+        default="False",
         help='Logistic Regression'
     )
     parser.add_argument(
