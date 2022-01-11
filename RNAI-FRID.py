@@ -17,8 +17,8 @@ def args_parser():
     parser.add_argument(
         '--test_set',
         type=str,
-        # default='None',
-        default='Example\\TestSet.fasta',
+        default='None',
+        # default='Example\\TestSet.fasta',
         help='path of Test Set'
     )
     parser.add_argument(
@@ -120,6 +120,7 @@ def ResultOutput(bol, mod, TPR, PPV, ACC, F1, MCC, AUC):
         R.append("F1: " + str(F1) + '\n')
         R.append("MCC: " + str(MCC) + '\n')
         R.append("AUC: " + str(AUC) + '\n')
+        R.append("\n")
     else: # Cross-Validation
         R.append(mod + " 10-fold Cross Validation Results \n")
         for it in range(10):
@@ -137,6 +138,7 @@ def ResultOutput(bol, mod, TPR, PPV, ACC, F1, MCC, AUC):
         R.append("F1: " + str(np.mean(F1)) + '\n')
         R.append("MCC: " + str(np.mean(MCC)) + '\n')
         R.append("AUC: " + str(np.mean(AUC)) + '\n')
+        R.append("\n")
     return R
 
 def RNAIFRID(args):
@@ -183,58 +185,58 @@ def RNAIFRID(args):
     if args.rf == "True":
         if args.test_set is not "None":
             TPR, PPV, ACC, F1, MCC, AUC = Test(X_train, y_train, X_test, y_test, "rf")
-            Res = ResultOutput(True, "Random Forest", TPR, PPV, ACC, F1, MCC, AUC)
+            Res = Res + ResultOutput(True, "Random Forest", TPR, PPV, ACC, F1, MCC, AUC)
         else:
             TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum = CrossValidation(X_train, y_train, "rf")
-            Res = ResultOutput(False, "Random Forest", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
+            Res = Res + ResultOutput(False, "Random Forest", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
     # Support Vector Machine predicting
     if args.svm == "True":
         if args.test_set is not "None":
             TPR, PPV, ACC, F1, MCC, AUC = Test(X_train, y_train, X_test, y_test, "svm")
-            Res = ResultOutput(True, "Support Vector Machine", TPR, PPV, ACC, F1, MCC, AUC)
+            Res = Res + ResultOutput(True, "Support Vector Machine", TPR, PPV, ACC, F1, MCC, AUC)
         else:
             TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum = CrossValidation(X_train, y_train, "svm")
-            Res = ResultOutput(False, "Support Vector Machine", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
+            Res = Res + ResultOutput(False, "Support Vector Machine", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
     # Logistic Regression predicting
     if args.lr == "True":
         if args.test_set is not "None":
             TPR, PPV, ACC, F1, MCC, AUC = Test(X_train, y_train, X_test, y_test, "lr")
-            Res = ResultOutput(True, "Logistic Regression", TPR, PPV, ACC, F1, MCC, AUC)
+            Res = Res + ResultOutput(True, "Logistic Regression", TPR, PPV, ACC, F1, MCC, AUC)
         else:
             TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum = CrossValidation(X_train, y_train, "lr")
-            Res = ResultOutput(False, "Logistic Regression", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
+            Res = Res + ResultOutput(False, "Logistic Regression", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
     # Gradient Boosting predicting
     if args.gb == "True":
         if args.test_set is not "None":
             TPR, PPV, ACC, F1, MCC, AUC = Test(X_train, y_train, X_test, y_test, "gb")
-            Res = ResultOutput(True, "Gradient Boosting", TPR, PPV, ACC, F1, MCC, AUC)
+            Res = Res + ResultOutput(True, "Gradient Boosting", TPR, PPV, ACC, F1, MCC, AUC)
         else:
             TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum = CrossValidation(X_train, y_train, "gb")
-            Res = ResultOutput(False, "Gradient Boosting", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
+            Res = Res + ResultOutput(False, "Gradient Boosting", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
     # K-Nearest Neighbour predicting
     if args.knn == "True":
         if args.test_set is not "None":
             TPR, PPV, ACC, F1, MCC, AUC = Test(X_train, y_train, X_test, y_test, "knn")
-            Res = ResultOutput(True, "K-Nearest Neighbour", TPR, PPV, ACC, F1, MCC, AUC)
+            Res = Res + ResultOutput(True, "K-Nearest Neighbour", TPR, PPV, ACC, F1, MCC, AUC)
         else:
             TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum = CrossValidation(X_train, y_train, "knn")
-            Res = ResultOutput(False, "K-Nearest Neighbour", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
+            Res = Res + ResultOutput(False, "K-Nearest Neighbour", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
     # Gaussian Naive Bayes predicting
     if args.nb == "True":
         if args.test_set is not "None":
             TPR, PPV, ACC, F1, MCC, AUC = Test(X_train, y_train, X_test, y_test, "nb")
-            Res = ResultOutput(True, "Naive Bayes", TPR, PPV, ACC, F1, MCC, AUC)
+            Res = Res + ResultOutput(True, "Naive Bayes", TPR, PPV, ACC, F1, MCC, AUC)
         else:
             TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum = CrossValidation(X_train, y_train, "nb")
-            Res = ResultOutput(False, "Naive Bayes", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
+            Res = Res + ResultOutput(False, "Naive Bayes", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
     # Decision Tree predicting
     if args.dt == "True":
         if args.test_set is not "None":
             TPR, PPV, ACC, F1, MCC, AUC = Test(X_train, y_train, X_test, y_test, "dt")
-            Res = ResultOutput(True, "Decision Tree", TPR, PPV, ACC, F1, MCC, AUC)
+            Res = Res + ResultOutput(True, "Decision Tree", TPR, PPV, ACC, F1, MCC, AUC)
         else:
             TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum = CrossValidation(X_train, y_train, "dt")
-            Res = ResultOutput(False, "Decision Tree", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
+            Res = Res + ResultOutput(False, "Decision Tree", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
     # Output
     if Res is not []:
         w = open('Prediction Results.fasta', 'w')

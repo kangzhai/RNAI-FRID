@@ -2,6 +2,7 @@
 
 import numpy as np
 from sklearn import linear_model, neighbors, ensemble, svm, naive_bayes, tree
+from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import recall_score, precision_score, accuracy_score, f1_score, matthews_corrcoef, roc_auc_score
 from keras.utils import np_utils
 np.random.seed(1337) # random seed
@@ -81,22 +82,22 @@ def ModelTraining(X_train, y_train, Model):
         return
     return Struct
 
-def ResultEvaluation(y_test, group, score):
+def ResultEvaluation(y_test, y_auc, group, score):
+    AUC = roc_auc_score(y_auc, score)
     TPR = recall_score(y_test, group)
     PPV = precision_score(y_test, group)
     ACC = accuracy_score(y_test, group)
     F1 = f1_score(y_test, group)
     MCC = matthews_corrcoef(y_test, group)
-    AUC = roc_auc_score(y_test, score)
     return TPR, PPV, ACC, F1, MCC, AUC
 
 def Test(X_train, y_train, X_test, y_test, Model):
     y_test = np.array(y_test).astype('int').reshape(-1, 1)
-    y_test = np_utils.to_categorical(y_test, num_classes=2)
+    y_auc = np_utils.to_categorical(y_test, num_classes=2)
     Struct = ModelTraining(X_train, y_train, Model)
     group = Struct.predict(X_test)
     score = Struct.predict_proba(X_test)
-    TPR, PPV, ACC, F1, MCC, AUC = ResultEvaluation(y_test, group, score)
+    TPR, PPV, ACC, F1, MCC, AUC = ResultEvaluation(y_test, y_auc, group, score)
     return TPR, PPV, ACC, F1, MCC, AUC
 
 def CrossValidation(X, y, Model):
@@ -104,10 +105,11 @@ def CrossValidation(X, y, Model):
     strKFold = StratifiedKFold(n_splits=10, shuffle=False, random_state=0)
     for index, (train_index, test_index) in enumerate(strKFold.split(X, y)):
         X_train, X_test, y_train, y_test = np.array(X)[train_index], np.array(X)[test_index], np.array(y)[train_index], np.array(y)[test_index]
+        y_auc = np_utils.to_categorical(y_test, num_classes=2)
         Struct = ModelTraining(X_train, y_train, Model)
         group = Struct.predict(X_test)
         score = Struct.predict_proba(X_test)
-        TPR, PPV, ACC, F1, MCC, AUC = ResultEvaluation(y_test, group, score)
+        TPR, PPV, ACC, F1, MCC, AUC = ResultEvaluation(y_test, y_auc, group, score)
         TPRsum.append(TPR)
         PPVsum.append(PPV)
         ACCsum.append(ACC)
