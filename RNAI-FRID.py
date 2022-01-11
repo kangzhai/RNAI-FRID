@@ -244,9 +244,6 @@ def RNAIFRID(args):
 def main():
     args = args_parser()
     RNAIFRID(args)
-    print(args.all_feature)
-    print(args.ranked_feature)
-    print(args.retained_feature)
 
 if __name__ == '__main__':
     main()
