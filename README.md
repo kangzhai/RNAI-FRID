@@ -36,25 +36,25 @@ python RNAI-FRID.py --tv_set Example\TrainingValidationSet.fasta --test_set None
 
 --test_set (must be a path or "None"): Path of dataset for test and default is "None". "None" means only training and validation without test. When it is not "None", the features of testset can be output.
 
---all_feature (must be "True" or "False"): Output all complex features without ranking.
+--all_feature (must be "True" or "False"): Output all complex features without ranking and default is "False".
 
---ranked_feature (must be "True" or "False"): Output ranked complex features.
+--ranked_feature (must be "True" or "False"): Output ranked complex features and default is "False".
 
---retained_feature (must be "True" or "False"): Output retained complex features.
+--retained_feature (must be "True" or "False"): Output retained complex features and default is "True".
 
---rf (must be "True" or "False"): Train a Random Forest model with the generated features. If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
+--rf (must be "True" or "False"): Train a Random Forest model with the generated features and default is "False". If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
 
---svm (must be "True" or "False"): Train a Support Vector Machine model with the generated features. If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
+--svm (must be "True" or "False"): Train a Support Vector Machine model with the generated features and default is "False". If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
 
---lr (must be "True" or "False"): Train a Logistic Regression model with the generated features. If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
+--lr (must be "True" or "False"): Train a Logistic Regression model with the generated features and default is "False". If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
 
---gb (must be "True" or "False"): Train a Gradient Boosting model with the generated features. If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
+--gb (must be "True" or "False"): Train a Gradient Boosting model with the generated features and default is "False". If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
 
---knn (must be "True" or "False"): Train a K-Nearest Neighbour model with the generated features. If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
+--knn (must be "True" or "False"): Train a K-Nearest Neighbour model with the generated features and default is "False". If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
 
---nb (must be "True" or "False"): Train a Naive Bayes model with the generated features. If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
+--nb (must be "True" or "False"): Train a Naive Bayes model with the generated features and default is "False". If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
 
---dt (must be "True" or "False"): Train a Decision Tree model with the generated features. If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
+--dt (must be "True" or "False"): Train a Decision Tree model with the generated features and default is "False". If "test_set" is "None", output the 10-fold cross-validation results, otherwise output the test result.
 
 # Reference
 If you use the codes, please cite the reference as below.
