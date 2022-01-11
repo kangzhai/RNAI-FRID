@@ -238,7 +238,7 @@ def RNAIFRID(args):
             TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum = CrossValidation(X_train, y_train, "dt")
             Res = Res + ResultOutput(False, "Decision Tree", TPRsum, PPVsum, ACCsum, F1sum, MCCsum, AUCsum)
     # Output
-    if Res is not []:
+    if Res:
         w = open('Prediction Results.fasta', 'w')
         w.writelines(Res)
         w.close()
