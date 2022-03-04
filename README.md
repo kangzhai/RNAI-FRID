@@ -59,4 +59,4 @@ In the output feature file, each line represents the feature values of a sample 
 # Reference
 If you use the codes, please cite the reference as below.
 
-The paper has been submitted. Please wait for updating.
+The paper has been accepted by Briefings in Bioinformatics. Please wait for updating.
