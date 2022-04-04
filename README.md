@@ -59,4 +59,4 @@ In the output feature file, each line represents the feature values of a sample 
 # Reference
 If you use the codes, please cite the reference as below.
 
-The paper has been accepted by Briefings in Bioinformatics. Please wait for updating.
+Qiang Kang, Jun Meng, Yushi Luan. RNAI-FRID: novel feature representation method with information enhancement and dimension reduction for RNA-RNA interaction. Briefings in Bioinformatics. 2022. https://doi.org/10.1093/bib/bbac107
